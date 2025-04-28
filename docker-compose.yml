@@ -1,0 +1,28 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - YOUTUBE_API=AIzaSyD8oC6iqwOCsDKNS6hzePaZ7m6rXHQAHmQ
+      - SEARCH_QUERY=technology 
+      - MONGO_URI=mongodb+srv://developerrup:yAAlreMj9qeE080a@cluster0.ccwka.mongodb.net/youtube
+    depends_on:
+      - mongo
+    networks:
+      - youtube-network
+
+  mongo:
+    image: mongo:latest
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - youtube-network
+
+networks:
+  youtube-network:
+    driver: bridge
+
+volumes:
+  mongodb-data:
