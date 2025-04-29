@@ -5,9 +5,9 @@ services:
       - "3000:3000"
     environment:
       - PORT=3000
-      - YOUTUBE_API=AIzaSyD8oC6iqwOCsDKNS6hzePaZ7m6rXHQAHmQ
+      - YOUTUBE_API=youtubeapikey
       - SEARCH_QUERY=technology 
-      - MONGO_URI=mongodb+srv://developerrup:yAAlreMj9qeE080a@cluster0.ccwka.mongodb.net/youtube
+      - MONGO_URI=mongodbconnecturi
     depends_on:
       - mongo
     networks:
